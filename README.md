@@ -1,6 +1,6 @@
 # apollo-client-helper
 
-A tiny helper we use above [apollo-client](https://github.com/apollographql/apollo-client)
+A tiny helper we use on top of [apollo-client](https://github.com/apollographql/apollo-client)
 
 ## Usage
 
