@@ -4,6 +4,10 @@ A tiny helper we use on top of [apollo-client](https://github.com/apollographql/
 
 ## Usage
 
+```
+yarn add apollo-client @seracio/apollo-client-helper
+```
+
 ```javascript
 import ApolloHelper from '@seracio/apollo-client-helper';
 
