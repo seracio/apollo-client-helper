@@ -6,7 +6,7 @@
   "repository": "https://github.com/seracio/apollo-client-helper.git",
   "author": "nicolasmondon <nicolasmondon@gmail.com>",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "main": "dist/apollo-client-helper.js",
   "module": "dist/apollo-client-helper.es6.js",
   "peerDependencies": {
