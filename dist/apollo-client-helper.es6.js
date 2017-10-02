@@ -2,27 +2,21 @@ import ApolloClient from 'apollo-client';
 import HttpLink from 'apollo-link-http';
 import InMemoryCache from 'apollo-cache-inmemory';
 
-var ApolloHelper = function ApolloHelper(uri) {
-    this.client = new ApolloClient({
-        link: new HttpLink({ uri: uri }),
-        cache: InMemoryCache()
-    });
-};
+class ApolloHelper {
+    constructor(uri) {
+        this.client = new ApolloClient({
+            link: new HttpLink({ uri }),
+            cache: new InMemoryCache()
+        });
+    }
 
-ApolloHelper.prototype.getMutation = function getMutation (mutation, variables) {
-        if ( variables === void 0 ) variables = {};
+    getMutation(mutation, variables = {}) {
+        return this.client.mutate({ mutation, variables }).then(result => result.data);
+    }
 
-    return this.client
-        .mutate({ mutation: mutation, variables: variables })
-        .then(function (result) { return result.data; });
-};
-
-ApolloHelper.prototype.getQuery = function getQuery (query, variables) {
-        if ( variables === void 0 ) variables = {};
-
-    return this.client
-        .query({ query: query, variables: variables })
-        .then(function (result) { return result.data; });
-};
+    getQuery(query, variables = {}) {
+        return this.client.query({ query, variables }).then(result => result.data);
+    }
+}
 
 export default ApolloHelper;
