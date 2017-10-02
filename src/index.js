@@ -6,7 +6,7 @@ class ApolloHelper {
     constructor(uri) {
         this.client = new ApolloClient({
             link: new HttpLink({ uri }),
-            cache: InMemoryCache()
+            cache: new InMemoryCache()
         });
     }
 
