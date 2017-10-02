@@ -5,7 +5,7 @@ A tiny helper we use on top of [apollo-client](https://github.com/apollographql/
 ## Usage
 
 ```
-yarn add apollo-client @seracio/apollo-client-helper
+yarn add apollo-client@beta apollo-cache-inmemory@beta apollo-link-http@beta @seracio/apollo-client-helper
 ```
 
 ```javascript

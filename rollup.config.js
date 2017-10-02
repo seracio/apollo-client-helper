@@ -5,21 +5,24 @@ const resolve = require('rollup-plugin-node-resolve');
 const pkg = JSON.parse(fs.readFileSync('package.json', 'utf-8'));
 
 module.exports = {
-  entry: 'src/index.js',
-  targets: [{
-    dest: pkg.main,
-    format: 'cjs'
-  }, {
-    dest: pkg.module,
-    format: 'es'
-  }],
-  sourceMap: false,
-  external: ['apollo-client'],
-  plugins: [
-    commonjs(),
-    resolve(),
-    buble({
-      objectAssign: 'Object.assign',
-    }),
-  ]
+    input: 'src/index.js',
+    output: [
+        {
+            file: pkg.main,
+            format: 'cjs'
+        },
+        {
+            file: pkg.module,
+            format: 'es'
+        }
+    ],
+    sourceMap: false,
+    external: ['apollo-client', 'apollo-cache-inmemory', 'apollo-link-http'],
+    plugins: [
+        commonjs(),
+        resolve(),
+        buble({
+            objectAssign: 'Object.assign'
+        })
+    ]
 };
