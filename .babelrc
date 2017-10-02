@@ -1,0 +1,32 @@
+{
+    "plugins": [
+        "transform-object-rest-spread"
+    ],
+    "env": {
+        "test": {
+            "presets": [
+                [
+                    "env",
+                    {
+                        "targets": {
+                            "node": "current"
+                        }
+                    }
+                ]
+            ]
+        },
+        "production": {
+            "plugin": [
+                "external-helpers"
+            ],
+            "presets": [
+                [
+                    "es2015",
+                    {
+                        "modules": false
+                    }
+                ]
+            ]
+        }
+    }
+}
