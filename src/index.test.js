@@ -1,4 +1,5 @@
 import 'isomorphic-fetch';
+import gql from 'graphql-tag';
 import Helper from './index';
 
 describe('Helper', () => {
@@ -10,7 +11,22 @@ describe('Helper', () => {
 describe('helper instance', () => {
     it('should not throw an exception when instanciated', () => {
         expect(() => {
-            helper = new Helper('https://data.serac.io/ligue1');
+            const helper = new Helper('https://data.serac.io/ligue1');
+        }).not.toThrowError();
+    });
+
+    it('should not throw an exception when a query is managed', end => {
+        expect(() => {
+            const helper = new Helper('https://data.serac.io/ligue1');
+            helper
+                .getQuery(
+                    gql`
+                        query {
+                            seasons
+                        }
+                    `
+                )
+                .then(end);
         }).not.toThrowError();
     });
 });
